@@ -11,7 +11,7 @@
   },
   "author": "Michael Zuegel",
   "postinstall": "electron-builder install-app-deps",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "build": {
     "appId": "com.app.qrcodegenerator",
     "mac": {
