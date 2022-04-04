@@ -1,0 +1,36 @@
+{
+  "name": "QRCode_Generator",
+  "version": "0.0.1",
+  "description": "Generates PNG QRCodes from text / url.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist-all": "electron-builder -wl"
+  },
+  "author": "Michael Zuegel",
+  "postinstall": "electron-builder install-app-deps",
+  "license": "UNLICENSED",
+  "build": {
+    "appId": "com.app.qrcodegenerator",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "portable"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "bootstrap.native": "^4.1.1",
+    "qrcode": "^1.5.0"
+  },
+  "devDependencies": {
+    "electron": "^17.1.0",
+    "electron-builder": "^22.14.13"
+  }
+}

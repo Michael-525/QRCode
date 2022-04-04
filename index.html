@@ -1,0 +1,179 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <title>QR Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card bg-light mt-3">
+            <div class="card-body mb-3 row">
+              <div class="h4 card-title">Generate QR Code</div>
+              <div class="col-lg-7 col-md-12">
+                <div class="mt-4">Text to convert</div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="qrcodeUrl"
+                  placeholder="https://some.url/awsome-site"
+                />
+              </div>
+              <div class="col-auto">
+                <div class="mt-4">Error Corr Level</div>
+                <div class="btn-group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="high"
+                    checked
+                  />
+                  <label class="btn btn-secondary" for="high">High</label>
+
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="quartile"
+                  />
+                  <label class="btn btn-secondary" for="quartile"
+                    >Quartile</label
+                  >
+
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="medium"
+                  />
+                  <label class="btn btn-secondary" for="medium">Medium</label>
+
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="low"
+                  />
+                  <label class="btn btn-secondary" for="low">Low</label>
+                </div>
+              </div>
+              <div class="col-lg-12 mt-4">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-lg"
+                  onclick="generateQRCode()"
+                >
+                  Generate QRCode
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="card bg-light mt-3">
+            <div class="card-body">
+              <span class="h5 card-title m-3">Info</span>
+              <button
+                class="btn btn-sm btn-outline-secondary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseInfo"
+                aria-expanded="false"
+                aria-controls="collapseInfo"
+              >
+                Toggle
+              </button>
+              <div class="collapse" id="collapseInfo">
+                <h5 class="mt-3">Wifi join Sequence</h5>
+                <p>
+                  WIFI:S:&lt;SSID&gt;;T:&lt;WEP|WPA|blank&gt;;P:&lt;PASSWORD&gt;;H:&lt;true|false|blank&gt;;;
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="card bg-light mt-3">
+            <div class="card-body">
+              <span class="h5 card-title m-3">Legend</span>
+              <button
+                class="btn btn-sm btn-outline-secondary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseLegend"
+                aria-expanded="false"
+                aria-controls="collapseLegend"
+              >
+                Toggle
+              </button>
+              <div class="collapse" id="collapseLegend">
+                <ul class="list-group list-group-flush mt-3">
+                  <li class="list-group-item">
+                    Level L (Low) 7% of data bytes can be restored.
+                  </li>
+                  <li class="list-group-item">
+                    Level M (Medium) 15% of data bytes can be restored.
+                  </li>
+                  <li class="list-group-item">
+                    Level Q (Quartile) 25% of data bytes can be restored.
+                  </li>
+                  <li class="list-group-item">
+                    Level H (High) 30% of data bytes can be restored.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h3 class="mt-3">Result:</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="w-50" scope="col">URL</th>
+                <th class="w-5" scope="col">Error Cor. Level</th>
+                <th class="w-5" scope="col">Options</th>
+                <th scope="col">QRCode</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template>
+                <tr>
+                  <td data-template="url"></td>
+                  <td data-template="compression"></td>
+                  <td>
+                    <button
+                      type="button"
+                      data-template="savebtn"
+                      class="btn btn-secondary"
+                    >
+                      Save
+                    </button>
+                  </td>
+                  <td><img data-template="qrcode" alt="" /></td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
