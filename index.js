@@ -37,13 +37,13 @@ function saveFile(data){
 window.api.receive("qRCodeGenerated", (data) => {
     console.log(`Received qRCodeGenerated from main process`);
     console.dir(data.url)
-    console.dir(data.compression)
+    console.dir(data.errCorrRate)
 
     // Adding a tablerow with the recieved data
     const template = document.querySelector("tbody template")
     const tr = template.content.cloneNode(true).querySelector('tr')
     tr.querySelector('[data-template=url]').textContent = data.url
-    tr.querySelector('[data-template=compression]').textContent = data.compression
+    tr.querySelector('[data-template=errCorrRate]').textContent = data.errCorrRate
     tr.querySelector('[data-template=qrcode]').src = data.qrcode
     tr.querySelector('[data-template="savebtn"]').addEventListener("click", function (params) {
         saveFile(data);
