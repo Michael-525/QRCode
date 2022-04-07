@@ -19,3 +19,12 @@ Run the code via:
 
 Build executeables via
 > npm run build-all
+
+
+## Screenshots
+
+![Linux Mint Image](/doc/screenshot_linux_mint.png)
+
+Responsive design with Bootstrap and Grid layout
+
+![Mint Image Narrow space](/doc/linux_mint_narrow.png)
